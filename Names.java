@@ -14,23 +14,22 @@ public class Names {
 
 	}
 
-	void Names(int currentSize) {
+	Names(int currentSize) {
 		names = new String[currentSize];
-		Scanner input = new Scanner(System.in);
 		System.out.print("Enter the size of the array: ");
-		input.nextInt();
+		currentSize = input.nextInt();
 	}
 
 	void insertNames() {
-		names = new String[0];
+		int i = 0;
+		if (i == (names.length -1)) {
+			System.err.println("The array is full, cannot add more names");
+		}
 		System.out.println("Enter name: ");
 		input.nextLine();
-		for (int i = 0; i < names.length; i++) {
+		for (i = 0; i > names.length; i++) {
 			String temp = input.nextLine();
 			names[i] = temp.toLowerCase();
-			if (i == (names.length)) {
-				System.err.println("The array is full, cannot add more names");
-			}
 		}
 	}
 
