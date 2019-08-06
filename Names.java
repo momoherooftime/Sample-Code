@@ -2,90 +2,54 @@ package Assignemnt4;
 
 import java.util.Scanner;
 
-public class Names {
+public class Assignment4 {
+	int currentSize = 0;
 
-	private String[] names = {};
-	private static int currentSize;
 
-	Scanner input = new Scanner(System.in);
-
-	Names() {
-		names = new String[10];
-
-	}
-
-	Names(int currentSize) {
-		names = new String[currentSize];
-		System.out.print("Enter the size of the array: ");
-		currentSize = input.nextInt();
-	}
-
-	void insertNames() {
-		int i = 0;
-		if (i == (names.length -1)) {
-			System.err.println("The array is full, cannot add more names");
-		}
-		System.out.println("Enter name: ");
-		input.nextLine();
-		for (i = 0; i > names.length; i++) {
-			String temp = input.nextLine();
-			names[i] = temp.toLowerCase();
-		}
-	}
-
-	void printNames() {
-		int k = 0;
-		if (k > names.length) {
-			for (k = 0; k < names.length; k++) {
-				System.out.println("The names inserted into the array are: ");
-				System.out.println(names[k]);
-			}
+	public static void main(String[] args) {
+		Names n = new Names();
+		n.Na
+		int option;
+		String[] names = {};
+		Scanner input = new Scanner(System.in);
+		System.out.println("Operations on Names \n" + "===================");
+		System.out.println("1. Enter a name");
+		System.out.println("2. Print all names");
+		System.out.println("3. Search a name");
+		System.out.println("4. Number of occurrences of a name");
+		System.out.println("5. Exit");
+		System.out.println("Enter your option:");
+		option = input.nextInt();
+		while (option > 5) {
+			System.err.println("Invalid option, please enter a valid option.");
+			option = input.nextInt();
 		}
 
-		if (k > names.length) {
-			System.err.println("No names in the array");
+		switch (option) {
+		case 1:
+			n.insertNames();
+			Assignment4.main(args);
+			break;
+		case 2:
+			n.printNames();
+			Assignment4.main(args);
+			break;
+		case 3:
+
+			n.searchName(names);
+			Assignment4.main(args);
+			break;
+		case 4:
+			n.findNumOfOccurrences(names);
+			Assignment4.main(args);
+			break;
+		case 5:
+			System.out.println("Goodbye!");
+			while (option != 5)
+				;
+			break;
 		}
-
-	}
-
-	int searchName(String names[]) {
-		for (int l = 0; l < names.length; l++) {
-			System.out.println(names[l]);
-		}
-		int m = 0;
-		System.out.println("Enter the name to be searched: ");
-		String loc = input.nextLine();
-		String locName = loc.toLowerCase();
-
-		for (int l = 0; l < names.length; l++) {
-			if (locName.equals(names[l])) {
-				m = 1;
-				break;
-			} else {
-				m = 0;
-			}
-		}
-		if (m == 1) {
-			System.out.println("Match found for: " + locName);
-		} else if (m == 0) {
-			System.err.println("No Match found for: " + locName);
-		}
-
-		return m;
-
-	}
-
-	int findNumOfOccurrences(String names[]) {
-		System.out.print("Enter name: ");
-		input.nextLine();
-		int count = 0;
-		for (int o = 0; o < names.length; o++) {
-			if (input.equals(names[o]))
-				count++;
-			System.out.println("The number of occurences of a name are: ");
-			input.close();
-		}
-		return count;
+		input.close();
 	}
 
 }
