@@ -8,7 +8,6 @@ public class Assignment4 {
 
 	public static void main(String[] args) {
 		Names n = new Names();
-		n.N
 		int option;
 		Scanner input = new Scanner(System.in);
 		System.out.println("Operations on Names \n" + "===================");
